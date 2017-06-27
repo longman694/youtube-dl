@@ -521,6 +521,7 @@ from .limelight import (
     LimelightChannelIE,
     LimelightChannelListIE,
 )
+from .linetv import LineTVIE
 from .litv import LiTVIE
 from .liveleak import LiveLeakIE
 from .livestream import (
