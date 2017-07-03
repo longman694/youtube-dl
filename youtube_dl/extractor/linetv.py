@@ -1,22 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import re
-from pprint import pprint
 from time import time
 
 from .common import InfoExtractor
-from ..utils import (
-    find_xpath_attr,
-    smuggle_url,
-    unescapeHTML,
-    update_url_query,
-    int_or_none,
-)
 
 
 class LineTVIE(InfoExtractor):
     IE_NAME = 'tv.line.me'
+    IE_DESC = 'LINE TV Thailand'
     _VALID_URL = r'https?://tv\.line\.me/(v|embed)/(?P<id>\d+)_.+'
     _TEST = {
         'url': u'https://tv.line.me/v/1800305_club-friday-the-series-8-\u0e23\u0e31\u0e01\u0e41\u0e17\u0e49\u0e21'
@@ -32,7 +24,7 @@ class LineTVIE(InfoExtractor):
                      u'\u0e01\u0e41\u0e17\u0e49\u0e2b\u0e23\u0e37\u0e2d\u0e41\u0e04\u0e48...\u0e2a\u0e31\u0e1a\u0e2a'
                      u'\u0e19 EP.4 [5/5]',
             'thumbnail': 'https://phinf.pstatic.net/tvcast/20170624_255/dRCpL_14982404693141P37s_PNG/1498240469243.png?'
-                         'type=f640'
+                         'type=f640',
         }
     }
 
@@ -75,8 +67,6 @@ class LineTVIE(InfoExtractor):
 
         video_info = self._parse_json(self._download_webpage(video_info_url, video_id), video_id)
 
-        pprint(video_info)
-
         formats = []
 
         for f in video_info['videos']['list']:
@@ -90,5 +80,5 @@ class LineTVIE(InfoExtractor):
             'id': video_id,
             'title': video_info['meta']['subject'],
             'thumbnail': video_info['meta']['cover']['source'],
-            'formats': formats
+            'formats': formats,
         }

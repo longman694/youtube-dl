@@ -8,6 +8,7 @@ py2exe.log
 *.kate-swp
 build/
 dist/
+env/
 MANIFEST
 README.txt
 youtube-dl.1
