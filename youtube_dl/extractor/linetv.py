@@ -9,6 +9,7 @@ from .common import InfoExtractor
 class LineTVIE(InfoExtractor):
     IE_NAME = 'tv.line.me'
     IE_DESC = 'LINE TV Thailand'
+    _GEO_COUNTRIES = ['TH']
     _VALID_URL = r'https?://tv\.line\.me/(v|embed)/(?P<id>\d+)_.+'
     _TEST = {
         'url': u'https://tv.line.me/v/1800305_club-friday-the-series-8-\u0e23\u0e31\u0e01\u0e41\u0e17\u0e49\u0e21'

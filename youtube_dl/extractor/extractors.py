@@ -485,6 +485,7 @@ from .keek import KeekIE
 from .konserthusetplay import KonserthusetPlayIE
 from .kontrtube import KontrTubeIE
 from .krasview import KrasViewIE
+from .kseries import KSeriesIE
 from .ku6 import Ku6IE
 from .kusi import KUSIIE
 from .kuwo import (
