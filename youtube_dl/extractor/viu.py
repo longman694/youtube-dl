@@ -168,7 +168,7 @@ class ViuPlaylistIE(ViuBaseIE):
 
 class ViuOTTIE(InfoExtractor):
     IE_NAME = 'viu:ott'
-    _VALID_URL = r'https?://(?:www\.)?viu\.com/ott/(?P<country_code>[a-z]{2})/[a-z]{2}-[a-z]{2}/vod/(?P<id>\d+)'
+    _VALID_URL = r'https?://(?:www\.)?viu\.com/ott/(?P<country_code>[a-z]{2})/[a-z]{2}(?:-[a-z]{2})?/vod/(?P<id>\d+)'
     _TESTS = [{
         'url': 'http://www.viu.com/ott/sg/en-us/vod/3421/The%20Prime%20Minister%20and%20I',
         'info_dict': {
@@ -193,6 +193,17 @@ class ViuOTTIE(InfoExtractor):
             'skip_download': 'm3u8 download',
         },
         'skip': 'Geo-restricted to Hong Kong',
+    }, {
+        'url': 'https://www.viu.com/ott/th/th/vod/50187/Queen%20for%20Seven%20Days',
+        'info_dict': {
+            'id': '50187',
+            'ext': 'mp4',
+            'title': 'Queen for Seven Days | ตอน 1',
+        },
+        'params': {
+            'skip_download': 'm3u8 download',
+        },
+        'skip': 'Geo-restricted to Thailand',
     }]
 
     def _real_extract(self, url):
