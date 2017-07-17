@@ -1,6 +1,7 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
+from youtube_dl.utils import RegexNotFoundError
 from .common import InfoExtractor
 from .googledrive import GoogleDriveIE
 from ..utils import (
@@ -54,11 +55,16 @@ class KSeriesIE(InfoExtractor):
                 'Unable to access page. You may have been blocked.',
                 expected=True)
 
-        player = self._download_webpage('http://www.kseries.co/clip/play.php?id={}'
-                                        '&width=1005&height=550&dh=3-7&dh2=3-6&n=0'.format(video_id), video_id)
+        for n in [0, 1, 2]:
+            player = self._download_webpage('http://www.kseries.co/clip/play.php?'
+                                            'id={}&n={}'.format(video_id, n), video_id)
 
-        title = self._og_search_title(webpage)
-        video_url = self._html_search_regex('src="(https://docs.google.com/file/d/\w+/preview)"', player, 'g_url')
+            title = self._og_search_title(webpage)
+            try:
+                video_url = self._html_search_regex('src="(https://docs.google.com/file/d/\w+/preview)"', player, 'g_url')
+            except RegexNotFoundError:
+                continue
+            break
 
         ie = GoogleDriveIE()
         ie.set_downloader(self._downloader)
