@@ -1,12 +1,12 @@
 # coding: utf-8
 from __future__ import unicode_literals
 
-from youtube_dl.utils import RegexNotFoundError
 from .common import InfoExtractor
 from .googledrive import GoogleDriveIE
 from ..utils import (
     ExtractorError,
     js_to_json,
+    RegexNotFoundError
 )
 
 
@@ -39,6 +39,15 @@ class KSeriesIE(InfoExtractor):
                 'id': '147831',
                 'ext': 'mp4',
                 'title': 'Three Kingdoms เปิดตำราสามก๊ก Ep.10 HD',
+                'thumbnail': r're:^https?://.*\.jpg$',
+            },
+        },
+        {
+            'url': 'http://www.kseries.co/clip/108043/',
+            'info_dict': {
+                'id': '108043',
+                'ext': 'mp4',
+                'title': 'Hero Zhao Zi Long จูล่ง ขุนพลเทพสงคราม พากย์ไทย Ep.1 HD',
                 'thumbnail': r're:^https?://.*\.jpg$',
             },
         }
