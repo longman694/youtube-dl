@@ -10,24 +10,30 @@ class LineTVIE(InfoExtractor):
     IE_NAME = 'tv.line.me'
     IE_DESC = 'LINE TV Thailand'
     _GEO_COUNTRIES = ['TH']
-    _VALID_URL = r'https?://tv\.line\.me/(v|embed)/(?P<id>\d+)_.+'
-    _TEST = {
-        'url': u'https://tv.line.me/v/1800305_club-friday-the-series-8-\u0e23\u0e31\u0e01\u0e41\u0e17\u0e49\u0e21'
-               u'\u0e35\u0e2b\u0e23\u0e37\u0e2d\u0e44\u0e21\u0e48\u0e21\u0e35\u0e08\u0e23\u0e34\u0e07-\u0e15\u0e2d'
-               u'\u0e19\u0e23\u0e31\u0e01\u0e41\u0e17\u0e49\u0e2b\u0e23\u0e37\u0e2d\u0e41\u0e04\u0e48\u0e2a\u0e31'
-               u'\u0e1a\u0e2a\u0e19-ep4-5-5',
-        'md5': 'aff2e0e78037df9f780225129b81b66f',
-        'info_dict': {
-            'id': '1800305',
-            'ext': 'mp4',
-            'title': u'Club Friday The Series 8 \u0e23\u0e31\u0e01\u0e41\u0e17\u0e49...\u0e21\u0e35\u0e2b\u0e23\u0e37'
-                     u'\u0e2d\u0e44\u0e21\u0e48\u0e21\u0e35\u0e08\u0e23\u0e34\u0e07 \u0e15\u0e2d\u0e19\u0e23\u0e31'
-                     u'\u0e01\u0e41\u0e17\u0e49\u0e2b\u0e23\u0e37\u0e2d\u0e41\u0e04\u0e48...\u0e2a\u0e31\u0e1a\u0e2a'
-                     u'\u0e19 EP.4 [5/5]',
-            'thumbnail': 'https://phinf.pstatic.net/tvcast/20170624_255/dRCpL_14982404693141P37s_PNG/1498240469243.png?'
-                         'type=f640',
+    _VALID_URL = r'https?://tv\.line\.me/(v|embed)/(?P<id>\d+)(?:_.+)?(?:/list/\d+)?'
+    _TESTS = [
+        {
+            'url': u'https://tv.line.me/v/1800305_club-friday-the-series-8-'
+                   u'รักแท้มีหรือไม่มีจริง-ตอนรักแท้หรือแค่สับสน-ep4-5-5/list/135464',
+            'md5': 'aff2e0e78037df9f780225129b81b66f',
+            'info_dict': {
+                'id': '1800305',
+                'ext': 'mp4',
+                'title': u'Club Friday The Series 8 รักแท้...มีหรือไม่มีจริง '
+                         u'ตอนรักแท้หรือแค่...สับสน EP.4 [5/5]',
+                'thumbnail': 'https://phinf.pstatic.net/tvcast/20170624_255/'
+                             'dRCpL_14982404693141P37s_PNG/1498240469243.png?'
+                             'type=f640',
+            }
+        }, {
+            'url': u'https://tv.line.me/v/1903589/list/143699',
+            'info_dict': {
+                'id': '1903589',
+                'ext': 'mp4',
+                'title': u'วิธีทำ เมนู “บลูเบอร์รีครัมเบิลมัฟฟิน” ฟินจนเพื่อนต้องห่อกลับบ้าน',
+            }
         }
-    }
+    ]
 
     def _real_extract(self, url):
         video_id = self._match_id(url)
@@ -83,3 +89,4 @@ class LineTVIE(InfoExtractor):
             'thumbnail': video_info['meta']['cover']['source'],
             'formats': formats,
         }
+
