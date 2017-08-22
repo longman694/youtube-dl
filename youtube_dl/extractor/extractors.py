@@ -187,6 +187,7 @@ from .chirbit import (
 from .cinchcast import CinchcastIE
 from .cjsw import CJSWIE
 from .cliphunter import CliphunterIE
+from .clippit import ClippitIE
 from .cliprs import ClipRsIE
 from .clipsyndicate import ClipsyndicateIE
 from .closertotruth import CloserToTruthIE
@@ -350,7 +351,12 @@ from .flipagram import FlipagramIE
 from .folketinget import FolketingetIE
 from .footyroom import FootyRoomIE
 from .formula1 import Formula1IE
-from .fourtube import FourTubeIE
+from .fourtube import (
+    FourTubeIE,
+    PornTubeIE,
+    PornerBrosIE,
+    FuxIE,
+)
 from .fox import FOXIE
 from .fox9 import FOX9IE
 from .foxgay import FoxgayIE
@@ -504,6 +510,7 @@ from .la7 import LA7IE
 from .laola1tv import (
     Laola1TvEmbedIE,
     Laola1TvIE,
+    ITTFIE,
 )
 from .lci import LCIIE
 from .lcp import (
@@ -532,7 +539,10 @@ from .limelight import (
 )
 from .linetv import LineTVIE
 from .litv import LiTVIE
-from .liveleak import LiveLeakIE
+from .liveleak import (
+    LiveLeakIE,
+    LiveLeakEmbedIE,
+)
 from .livestream import (
     LivestreamIE,
     LivestreamOriginalIE,
@@ -586,7 +596,6 @@ from .mixcloud import (
 )
 from .mlb import MLBIE
 from .mnet import MnetIE
-from .mpora import MporaIE
 from .moevideo import MoeVideoIE
 from .mofosex import MofosexIE
 from .mojvideo import MojvideoIE
@@ -843,6 +852,10 @@ from .rai import (
 from .rbmaradio import RBMARadioIE
 from .rds import RDSIE
 from .redbulltv import RedBullTVIE
+from .reddit import (
+    RedditIE,
+    RedditRIE,
+)
 from .redtube import RedTubeIE
 from .regiotv import RegioTVIE
 from .rentv import (
@@ -996,7 +1009,6 @@ from .teachertube import (
 )
 from .teachingchannel import TeachingChannelIE
 from .teamcoco import TeamcocoIE
-from .teamfourstar import TeamFourStarIE
 from .techtalks import TechTalksIE
 from .ted import TEDIE
 from .tele13 import Tele13IE
@@ -1225,6 +1237,7 @@ from .vodlocker import VodlockerIE
 from .vodpl import VODPlIE
 from .vodplatform import VODPlatformIE
 from .voicerepublic import VoiceRepublicIE
+from .voot import VootIE
 from .voxmedia import VoxMediaIE
 from .vporn import VpornIE
 from .vrt import VRTIE
