@@ -902,6 +902,7 @@ from .rutube import (
     RutubeEmbedIE,
     RutubeMovieIE,
     RutubePersonIE,
+    RutubePlaylistIE,
 )
 from .rutv import RUTVIE
 from .ruutu import RuutuIE
